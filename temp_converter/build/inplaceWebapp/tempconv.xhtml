@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core" xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Temperature Converter</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </h:head>
+    <h:body>
+        <!--<div>TODO write content</div> !-->
+        <h:form>
+   <!-- <h:panelGrid columns="2" cellpadding="5">!-->
+   <p:panel header="Temperatur Converter">
+   <h:outputText value="Temperatur Converter: " /><br />
+                 <p:separator />
+       <h:outputText value="Temp-Eingabe: " />
+
+        <p:inputText value="#{temperatureConverter.temp}" />
+        <br />
+
+        <h:panelGrid columns="2" cellpadding="5">
+        
+    <p:commandButton value="C->F" type="submit" ajax="false"  action="#{temperatureConverter.convert('C', 'F')}"/>
+    <p:commandButton value="F->C" type="submit" ajax="false"  action="#{temperatureConverter.convert('F', 'C')}"/>
+    <p:commandButton value="C->K" type="submit" ajax="false" action="#{temperatureConverter.convert('C', 'K')}"/>
+    <p:commandButton value="F->K" type="submit" ajax="false" action="#{temperatureConverter.convert('F', 'K')}"/>
+    <p:commandButton value="K->C" type="submit" ajax="false" action="#{temperatureConverter.convert('K', 'C')}"/>
+    <p:commandButton value="K->F" type="submit" ajax="false"  action="#{temperatureConverter.convert('K', 'F')}"/>
+    
+    </h:panelGrid>
+    <p:separator />
+
+    <p:commandButton value="RESET" type="submit" ajax="false"   action="#{temperatureConverter.reset}"/>
+      
+            <!--<f:actionListener binding="" />!-->
+        <!--</p:commandButton>!-->
+
+ 
+     
+    <!--</h:panelGrid>!-->
+ 
+    <p:spacer height="10" />
+    </p:panel>
+ 
+  
+ 
+    <!--<p:messages id="messages" showDetail="true" autoUpdate="true" />!-->
+ 
+    <!--<h:panelGrid columns="2" id="matchGrid" cellpadding="5">                   
+        <h:outputLabel for="pwd1" value="Password 1: *" />
+        <p:password id="pwd1" value="" match="pwd2" label="Password 1" required="true" />
+ 
+        <h:outputLabel for="pwd2" value="Password 2: *" />
+        <p:password id="pwd2" value="" label="Password 2" required="true" />
+    </h:panelGrid>
+ 
+    <p:commandButton update="matchGrid" value="Save" /> !-->
+    <!--<h:panelGroup rendered="">
+        <h:outputText value="anmeldedaten richtig" />;
+    </h:panelGroup>
+        <p:dialog header="Greeting" widgetVar="dlg" modal="true"
+                resizable="false">
+                <h:panelGrid id="display" columns="1"
+                    cellpadding="4">
+                    <h:outputText value="asdasd" />
+
+                </h:panelGrid>
+            </p:dialog>!-->
+</h:form>
+        <p:panel id="result" header="Result">
+            <h:outputLabel value="#{temperatureConverter.tempConv}"/>
+            <h:outputLabel value="#{temperatureConverter.unit}"/>
+        </p:panel>
+     
+    </h:body>
+</html>
